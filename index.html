@@ -11,10 +11,14 @@
 
     nav { background: #0A0A0A; border-bottom: 0.5px solid #222; padding: 14px 48px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
     .nav-logo { display: flex; align-items: center; gap: 8px; }
-    .logo-circle { width: 28px; height: 28px; background: #5B35C8; border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-icon { width: 32px; height: 32px; background: #5B35C8; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .logo-icon svg { width: 20px; height: 20px; }
     .nav-brand { font-size: 16px; font-weight: 500; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a { font-size: 14px; color: #666; }
+    .lang-toggle { display: flex; background: #161616; border: 0.5px solid #333; border-radius: 8px; overflow: hidden; }
+    .lang-btn { padding: 6px 12px; font-size: 13px; cursor: pointer; color: #666; background: transparent; border: none; }
+    .lang-btn.active { background: #5B35C8; color: #fff; }
     .nav-btn { background: #5B35C8; color: #fff; border: none; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; }
 
     .hero { padding: 80px 48px 40px; text-align: center; }
@@ -35,7 +39,7 @@
     .section-label { text-align: center; font-size: 16px; color: #5B35C8; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
     .section-title { text-align: center; font-size: 28px; font-weight: 500; margin-bottom: 32px; }
 
-    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
     .feature-card { background: #161616; border: 0.5px solid #222; border-radius: 14px; padding: 16px; text-align: center; }
     .feature-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
     .feature-card p { font-size: 13px; color: #666; line-height: 1.6; }
@@ -62,110 +66,208 @@
 
   <nav>
     <div class="nav-logo">
-    <img src="morva_white.png" style="width:32px;height:32px;object-fit:contain;">
+      <div class="logo-icon">
+        <img src="morva_main_white.png" style="width:22px;height:22px;object-fit:contain;">
+      </div>
       <span class="nav-brand">Morva</span>
     </div>
     <div class="nav-links">
-      <a href="#how-it-works">How it works</a>
-      <button class="nav-btn">Download</button>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('tr')">TR</button>
+      </div>
+      <button class="nav-btn" id="nav-download">Download</button>
     </div>
   </nav>
 
   <section class="hero">
     <h1><span id="typed-text"></span><span class="cursor"></span></h1>
-    <p class="hero-sub">Take a photo or pick from your gallery. Morva tells you what it is, how to care for it and so much more.</p>
+    <p class="hero-sub" id="hero-sub">Take a photo or pick from your gallery. Morva tells you what it is, how to care for it and so much more.</p>
     <div class="hero-btns">
       <button class="btn-primary">
         <span style="font-size:20px;">&#63743;</span>
-        Download on App Store
+        <span id="hero-download">Download on App Store</span>
+      </button>
     </div>
     <div class="stats-row">
       <div class="stat-item">
         <div class="stat-num">3</div>
-        <div class="stat-label">Free daily scans</div>
+        <div class="stat-label" id="stat-1">Free daily scans</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">100%</div>
-        <div class="stat-label">Local storage</div>
+        <div class="stat-label" id="stat-2">Local storage</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">iOS</div>
-        <div class="stat-label">Available now</div>
+        <div class="stat-label" id="stat-3">Available now</div>
       </div>
+    </div>
   </section>
+
   <section id="features">
-    <div class="section-label">Features</div>
-    <div class="section-title">Everything you need to know about your plants</div>
+    <div class="section-label" id="features-label">Features</div>
+    <div class="section-title" id="features-title">Everything you need to know about your plants</div>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Plant identification</h3>
-        <p>Instant plant recognition. Just one photo is enough.</p>
+        <h3 id="f1-title">Plant identification</h3>
+        <p id="f1-desc">Instant plant recognition. Just one photo is enough.</p>
       </div>
       <div class="feature-card">
-        <h3>Discovery & Guide</h3>
-        <p>Watering schedule, light requirements, toxicity information and detailed care instructions.</p>
+        <h3 id="f2-title">Care Guide</h3>
+        <p id="f2-desc">Watering schedule, light requirements, toxicity information and detailed care instructions.</p>
       </div>
       <div class="feature-card">
-        <h3>Archive</h3>
-        <p>Save your scanned plants and revisit them anytime — all stored locally.</p>
+        <h3 id="f3-title">Health Diagnosis</h3>
+        <p id="f3-desc">AI-powered diagnosis for sick plants. Step-by-step recovery plan and day-by-day tracking.</p>
+      </div>
+      <div class="feature-card">
+        <h3 id="f4-title">Collection</h3>
+        <p id="f4-desc">Save your identified plants and revisit them anytime — all stored locally.</p>
       </div>
     </div>
   </section>
 
   <section id="how-it-works" class="steps-section">
-    <div class="section-label">How it works</div>
-    <div class="section-title">3 steps to identify any plant</div>
+    <div class="section-label" id="how-label">How it works</div>
+    <div class="section-title" id="how-title">3 steps to identify any plant</div>
     <div class="steps-grid">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Take a photo</h3>
-        <p>Use your camera or pick from your gallery. Any plant, any angle.</p>
+        <h3 id="step1-title">Take a photo</h3>
+        <p id="step1-desc">Use your camera or pick from your gallery. Any plant, any angle.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Morva analyzes</h3>
-        <p>Morva identifies the plant and generates detailed information instantly.</p>
+        <h3 id="step2-title">Morva analyzes</h3>
+        <p id="step2-desc">Morva identifies the plant and generates detailed information instantly.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Learn & archive</h3>
-        <p>Explore detailed information about plant and save to your archive for further use.</p>
+        <h3 id="step3-title">Learn & archive</h3>
+        <p id="step3-desc">Explore detailed information about plant and save to your collection for further use.</p>
       </div>
     </div>
   </section>
 
   <section class="download-section">
-    <h2>Ready to identify your first plant?</h2>
-    <p>Available on iOS. Free to download.</p>
+    <h2 id="dl-title">Ready to identify your first plant?</h2>
+    <p id="dl-sub">Available on iOS. Free to download.</p>
     <a href="#" class="app-store-btn">
       <span style="font-size:22px;">&#63743;</span>
-      Download on the App Store
+      <span id="dl-btn">Download on the App Store</span>
     </a>
   </section>
 
   <footer>
     <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="mailto:hello@morva.app">Contact</a>
+      <a href="privacy.html" id="footer-privacy">Privacy Policy</a>
+      <a href="terms.html" id="footer-terms">Terms of Use</a>
+      <a href="mailto:hello@morva.app" id="footer-contact">Contact</a>
     </div>
     <span class="footer-copy">© 2026 Morva. All rights reserved.</span>
   </footer>
 
   <script>
-    const words = ["single photo.", "one tap.", "few seconds.", "quick snap."];
+    const content = {
+      en: {
+        words: ["single photo.", "one tap.", "instant results."],
+        heroSub: "Take a photo or pick from your gallery. Morva tells you what it is, how to care for it and so much more.",
+        navDownload: "Download",
+        heroDownload: "Download on App Store",
+        stat1: "Free daily scans", stat2: "Local storage", stat3: "Available now",
+        featuresLabel: "Features",
+        featuresTitle: "Everything you need to know about your plants",
+        f1Title: "Plant identification", f1Desc: "Instant plant recognition. Just one photo is enough.",
+        f2Title: "Care Guide", f2Desc: "Watering schedule, light requirements, toxicity information and detailed care instructions.",
+        f3Title: "Health Diagnosis", f3Desc: "AI-powered diagnosis for sick plants. Step-by-step recovery plan and day-by-day tracking.",
+        f4Title: "Collection", f4Desc: "Save your identified plants and revisit them anytime — all stored locally.",
+        howLabel: "How it works", howTitle: "3 steps to identify any plant",
+        step1Title: "Take a photo", step1Desc: "Use your camera or pick from your gallery. Any plant, any angle.",
+        step2Title: "Morva analyzes", step2Desc: "Morva identifies the plant and generates detailed information instantly.",
+        step3Title: "Learn & archive", step3Desc: "Explore detailed information about plant and save to your collection for further use.",
+        dlTitle: "Ready to identify your first plant?", dlSub: "Available on iOS. Free to download.", dlBtn: "Download on the App Store",
+        footerPrivacy: "Privacy Policy", footerTerms: "Terms of Use", footerContact: "Contact"
+      },
+      tr: {
+        words: ["tek fotoğraf.", "bir dokunuş.", "anında sonuç."],
+        heroSub: "Fotoğraf çek veya galerinizden seç. Morva ne olduğunu, nasıl bakılacağını ve çok daha fazlasını söyler.",
+        navDownload: "İndir",
+        heroDownload: "App Store'dan İndir",
+        stat1: "Günlük ücretsiz tarama", stat2: "Yerel depolama", stat3: "Şimdi mevcut",
+        featuresLabel: "Özellikler",
+        featuresTitle: "Bitkiler hakkında bilmen gereken her şey",
+        f1Title: "Bitki Tanımlama", f1Desc: "Anında bitki tanıma. Tek bir fotoğraf yeterli.",
+        f2Title: "Bakım Rehberi", f2Desc: "Sulama takvimi, ışık ihtiyacı, zehirlilik bilgisi ve detaylı bakım talimatları.",
+        f3Title: "Sağlık Teşhisi", f3Desc: "Hasta bitkiler için yapay zeka destekli teşhis. Adım adım iyileşme planı ve günlük takip.",
+        f4Title: "Koleksiyon", f4Desc: "Tanımlanan bitkilerini kaydet ve istediğin zaman tekrar bak",
+        howLabel: "Nasıl çalışır", howTitle: "Bitkini tanımlamak için 3 adım",
+        step1Title: "Fotoğraf çek", step1Desc: "Kameranı kullan veya galerinden seç. Herhangi bir bitki, herhangi bir açı.",
+        step2Title: "Morva analiz eder", step2Desc: "Morva bitkiyi tanımlar ve anında detaylı bilgi üretir.",
+        step3Title: "Öğren ve kaydet", step3Desc: "Bitki hakkında detaylı bilgileri keşfet ve koleksiyonuna kaydet.",
+        dlTitle: "İlk bitkini tanımlamaya hazır mısın?", dlSub: "iOS'ta mevcut. Ücretsiz indir.", dlBtn: "App Store'dan İndir",
+        footerPrivacy: "Gizlilik Politikası", footerTerms: "Kullanım Şartları", footerContact: "İletişim"
+      }
+    };
+
+    let currentLang = localStorage.getItem('morva-lang') || 'en';
     let wordIndex = 0, charIndex = 0, isDeleting = false;
+    let typingTimeout;
     const el = document.getElementById("typed-text");
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('morva-lang', lang);
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+      const c = content[lang];
+      document.getElementById('hero-sub').textContent = c.heroSub;
+      document.getElementById('nav-download').textContent = c.navDownload;
+      document.getElementById('hero-download').textContent = c.heroDownload;
+      document.getElementById('stat-1').textContent = c.stat1;
+      document.getElementById('stat-2').textContent = c.stat2;
+      document.getElementById('stat-3').textContent = c.stat3;
+      document.getElementById('features-label').textContent = c.featuresLabel;
+      document.getElementById('features-title').textContent = c.featuresTitle;
+      document.getElementById('f1-title').textContent = c.f1Title;
+      document.getElementById('f1-desc').textContent = c.f1Desc;
+      document.getElementById('f2-title').textContent = c.f2Title;
+      document.getElementById('f2-desc').textContent = c.f2Desc;
+      document.getElementById('f3-title').textContent = c.f3Title;
+      document.getElementById('f3-desc').textContent = c.f3Desc;
+      document.getElementById('f4-title').textContent = c.f4Title;
+      document.getElementById('f4-desc').textContent = c.f4Desc;
+      document.getElementById('how-label').textContent = c.howLabel;
+      document.getElementById('how-title').textContent = c.howTitle;
+      document.getElementById('step1-title').textContent = c.step1Title;
+      document.getElementById('step1-desc').textContent = c.step1Desc;
+      document.getElementById('step2-title').textContent = c.step2Title;
+      document.getElementById('step2-desc').textContent = c.step2Desc;
+      document.getElementById('step3-title').textContent = c.step3Title;
+      document.getElementById('step3-desc').textContent = c.step3Desc;
+      document.getElementById('dl-title').textContent = c.dlTitle;
+      document.getElementById('dl-sub').textContent = c.dlSub;
+      document.getElementById('dl-btn').textContent = c.dlBtn;
+      document.getElementById('footer-privacy').textContent = c.footerPrivacy;
+      document.getElementById('footer-terms').textContent = c.footerTerms;
+      document.getElementById('footer-contact').textContent = c.footerContact;
+      clearTimeout(typingTimeout);
+      wordIndex = 0; charIndex = 0; isDeleting = false;
+      el.textContent = '';
+      type();
+    }
+
     function type() {
+      const words = content[currentLang].words;
       const current = words[wordIndex];
       el.textContent = isDeleting ? current.substring(0, charIndex - 1) : current.substring(0, charIndex + 1);
       if (isDeleting) charIndex--; else charIndex++;
       let speed = isDeleting ? 60 : 100;
       if (!isDeleting && charIndex === current.length) { speed = 1800; isDeleting = true; }
       else if (isDeleting && charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; speed = 300; }
-      setTimeout(type, speed);
+      typingTimeout = setTimeout(type, speed);
     }
-    type();
+
+    setLang(currentLang);
   </script>
 
 </body>
