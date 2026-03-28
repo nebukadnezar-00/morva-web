@@ -12,6 +12,9 @@
     .nav-logo { display: flex; align-items: center; gap: 8px; }
     .logo-circle { width: 28px; height: 28px; background: #5B35C8; border-radius: 7px; display: flex; align-items: center; justify-content: center; }
     .nav-brand { font-size: 16px; font-weight: 500; }
+    .lang-toggle { display: flex; gap: 4px; }
+    .lang-btn { background: none; border: 0.5px solid #333; color: #555; font-size: 12px; padding: 4px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+    .lang-btn.active { border-color: #5B35C8; color: #fff; background: #5B35C820; }
     .content { max-width: 720px; margin: 0 auto; padding: 64px 48px; }
     h1 { font-size: 32px; font-weight: 500; margin-bottom: 8px; }
     .date { font-size: 13px; color: #555; margin-bottom: 48px; }
@@ -30,71 +33,143 @@
   <nav>
     <a href="index.html" class="nav-logo">
       <div class="logo-circle">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <ellipse cx="8" cy="4" rx="3" ry="5" fill="white"/>
-          <ellipse cx="3.5" cy="10" rx="4.5" ry="2.5" fill="white" transform="rotate(-20 3.5 10)"/>
-          <ellipse cx="12.5" cy="10" rx="4.5" ry="2.5" fill="white" transform="rotate(20 12.5 10)"/>
-          <line x1="8" y1="8" x2="8" y2="15" stroke="white" stroke-width="1.5"/>
-        </svg>
+        <img src="morva_main_white.png" width="18" height="18">
       </div>
       <span class="nav-brand">Morva</span>
     </a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('tr')">TR</button>
+    </div>
   </nav>
 
   <div class="content">
-    <h1>Privacy Policy</h1>
-    <p class="date">Last updated: March 2026</p>
+    <h1 id="title">Privacy Policy</h1>
+    <p class="date" id="date">Last updated: March 2026</p>
 
-    <p>This privacy policy applies to the Morva app for mobile devices that was created by Serhat Üstebay as a Free service. This service is intended for use "AS IS".</p>
+    <p id="intro">This privacy policy applies to the Morva app for mobile devices that was created by Serhat Üstebay as a Free service. This service is intended for use "AS IS".</p>
 
-    <h2>Information Collection and Use</h2>
-    <p>The Application collects information when you download and use it. This information may include:</p>
-    <ul>
-      <li>Your device's Internet Protocol address (e.g. IP address)</li>
-      <li>The pages of the Application that you visit, the time and date of your visit</li>
-      <li>The time spent on the Application</li>
-      <li>The operating system you use on your mobile device</li>
+    <h2 id="h-collection">Information Collection and Use</h2>
+    <p id="p-collection">The Application collects information when you download and use it. This information may include:</p>
+    <ul id="ul-collection">
+      <li id="li-ip">Your device's Internet Protocol address (e.g. IP address)</li>
+      <li id="li-pages">The pages of the Application that you visit, the time and date of your visit</li>
+      <li id="li-time">The time spent on the Application</li>
+      <li id="li-os">The operating system you use on your mobile device</li>
     </ul>
-    <p>The Application does not gather precise information about the location of your mobile device.</p>
+    <p id="p-location">The Application does not gather precise information about the location of your mobile device.</p>
 
-    <h2>AI Analysis</h2>
-    <p>The Application uses Artificial Intelligence technologies to enhance user experience and provide certain features. The AI components may process user data to deliver personalized content, recommendations, or automated functionalities. All AI processing is performed in accordance with this privacy policy and applicable laws.</p>
+    <h2 id="h-ai">AI Analysis</h2>
+    <p id="p-ai">The Application uses Anthropic's Claude API to analyze plant photos. When you take or select a photo for identification, the image is securely transmitted to Anthropic's servers for processing. Anthropic may retain submitted data in accordance with their own privacy policy, available at <a href="https://www.anthropic.com/privacy" style="color:#5B35C8;">anthropic.com/privacy</a>. No photos are stored on external servers by Morva — all identified plant data is saved locally on your device only.</p>
 
-    <h2>Third Party Access</h2>
-    <p>Only aggregated, anonymized data is periodically transmitted to external services. The Application utilizes third-party services that have their own Privacy Policy:</p>
+    <h2 id="h-third">Third Party Access</h2>
+    <p id="p-third">Only aggregated, anonymized data is periodically transmitted to external services. The Application utilizes third-party services that have their own Privacy Policy:</p>
     <ul>
       <li>Google Analytics for Firebase</li>
       <li>Firebase Crashlytics</li>
       <li>Amplitude</li>
     </ul>
 
-    <h2>Opt-Out Rights</h2>
-    <p>You can stop all collection of information by the Application easily by uninstalling it.</p>
+    <h2 id="h-optout">Opt-Out Rights</h2>
+    <p id="p-optout">You can stop all collection of information by the Application easily by uninstalling it.</p>
 
-    <h2>Data Retention Policy</h2>
-    <p>The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. If you'd like them to delete User Provided Data, please contact hello@morva.app.</p>
+    <h2 id="h-retention">Data Retention Policy</h2>
+    <p id="p-retention">The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. If you'd like them to delete User Provided Data, please contact ustebay00@gmail.com.</p>
 
-    <h2>Children</h2>
-    <p>The Application does not address anyone under the age of 13. If you are a parent or guardian and you are aware that your child has provided personal information, please contact hello@morva.app.</p>
+    <h2 id="h-children">Children</h2>
+    <p id="p-children">The Application does not address anyone under the age of 13. If you are a parent or guardian and you are aware that your child has provided personal information, please contact ustebay00@gmail.com.</p>
 
-    <h2>Security</h2>
-    <p>The Service Provider is concerned about safeguarding the confidentiality of your information and provides physical, electronic, and procedural safeguards to protect information.</p>
+    <h2 id="h-security">Security</h2>
+    <p id="p-security">The Service Provider is concerned about safeguarding the confidentiality of your information and provides physical, electronic, and procedural safeguards to protect information.</p>
 
-    <h2>Changes</h2>
-    <p>This Privacy Policy may be updated from time to time. You are advised to consult this Privacy Policy regularly for any changes.</p>
+    <h2 id="h-changes">Changes</h2>
+    <p id="p-changes">This Privacy Policy may be updated from time to time. You are advised to consult this Privacy Policy regularly for any changes.</p>
 
-    <h2>Contact Us</h2>
-    <p>If you have any questions regarding privacy, please contact us at <a href="mailto:hello@morva.app" style="color:#5B35C8;">hello@morva.app</a>.</p>
+    <h2 id="h-contact">Contact Us</h2>
+    <p id="p-contact">If you have any questions regarding privacy, please contact us at <a href="mailto:ustebay00@gmail.com" style="color:#5B35C8;">ustebay00@gmail.com</a>.</p>
   </div>
 
   <footer>
-    <a href="index.html" style="font-size:13px;color:#555;">← Back to Morva</a>
+    <a href="index.html" style="font-size:13px;color:#555;" id="back">← Back to Morva</a>
     <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Use</a>
     </div>
     <span class="footer-copy">© 2026 Morva.</span>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        title: "Privacy Policy",
+        date: "Last updated: March 2026",
+        intro: 'This privacy policy applies to the Morva app for mobile devices that was created by Serhat Üstebay as a Free service. This service is intended for use "AS IS".',
+        "h-collection": "Information Collection and Use",
+        "p-collection": "The Application collects information when you download and use it. This information may include:",
+        "li-ip": "Your device's Internet Protocol address (e.g. IP address)",
+        "li-pages": "The pages of the Application that you visit, the time and date of your visit",
+        "li-time": "The time spent on the Application",
+        "li-os": "The operating system you use on your mobile device",
+        "p-location": "The Application does not gather precise information about the location of your mobile device.",
+        "h-ai": "AI Analysis",
+        "p-ai": 'The Application uses Anthropic\'s Claude API to analyze plant photos. When you take or select a photo for identification, the image is securely transmitted to Anthropic\'s servers for processing. Anthropic may retain submitted data in accordance with their own privacy policy, available at <a href="https://www.anthropic.com/privacy" style="color:#5B35C8;">anthropic.com/privacy</a>. No photos are stored on external servers by Morva — all identified plant data is saved locally on your device only.',
+        "h-third": "Third Party Access",
+        "p-third": "Only aggregated, anonymized data is periodically transmitted to external services. The Application utilizes third-party services that have their own Privacy Policy:",
+        "h-optout": "Opt-Out Rights",
+        "p-optout": "You can stop all collection of information by the Application easily by uninstalling it.",
+        "h-retention": "Data Retention Policy",
+        "p-retention": "The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. If you'd like them to delete User Provided Data, please contact ustebay00@gmail.com.",
+        "h-children": "Children",
+        "p-children": "The Application does not address anyone under the age of 13. If you are a parent or guardian and you are aware that your child has provided personal information, please contact ustebay00@gmail.com.",
+        "h-security": "Security",
+        "p-security": "The Service Provider is concerned about safeguarding the confidentiality of your information and provides physical, electronic, and procedural safeguards to protect information.",
+        "h-changes": "Changes",
+        "p-changes": "This Privacy Policy may be updated from time to time. You are advised to consult this Privacy Policy regularly for any changes.",
+        "h-contact": "Contact Us",
+        "p-contact": 'If you have any questions regarding privacy, please contact us at <a href="mailto:ustebay00@gmail.com" style="color:#5B35C8;">ustebay00@gmail.com</a>.',
+        back: "← Back to Morva"
+      },
+      tr: {
+        title: "Gizlilik Politikası",
+        date: "Son güncelleme: Mart 2026",
+        intro: 'Bu gizlilik politikası, Serhat Üstebay tarafından ücretsiz bir hizmet olarak oluşturulan Morva mobil uygulaması için geçerlidir. Bu hizmet "OLDUĞU GİBİ" kullanım amacıyla sunulmaktadır.',
+        "h-collection": "Bilgi Toplama ve Kullanım",
+        "p-collection": "Uygulama, indirildiğinde ve kullanıldığında bilgi toplar. Bu bilgiler şunları içerebilir:",
+        "li-ip": "Cihazınızın İnternet Protokolü adresi (örn. IP adresi)",
+        "li-pages": "Uygulamada ziyaret ettiğiniz sayfalar, ziyaret tarih ve saati",
+        "li-time": "Uygulama üzerinde geçirilen süre",
+        "li-os": "Mobil cihazınızda kullandığınız işletim sistemi",
+        "p-location": "Uygulama, mobil cihazınızın konumu hakkında hassas bilgi toplamaz.",
+        "h-ai": "Yapay Zeka Analizi",
+        "p-ai": 'Uygulama, bitki fotoğraflarını analiz etmek için Anthropic\'in Claude API\'sini kullanır. Tanımlama için bir fotoğraf çektiğinizde veya seçtiğinizde, görüntü işlenmek üzere güvenli bir şekilde Anthropic\'in sunucularına iletilir. Anthropic, gönderilen verileri kendi gizlilik politikasına uygun olarak saklayabilir: <a href="https://www.anthropic.com/privacy" style="color:#5B35C8;">anthropic.com/privacy</a>. Morva tarafından harici sunucularda fotoğraf saklanmaz — tüm tanımlanan bitki verileri yalnızca cihazınızda yerel olarak kaydedilir.',
+        "h-third": "Üçüncü Taraf Erişimi",
+        "p-third": "Yalnızca toplu ve anonimleştirilmiş veriler periyodik olarak harici hizmetlere iletilir. Uygulama, kendi Gizlilik Politikaları olan üçüncü taraf hizmetlerinden yararlanır:",
+        "h-optout": "Vazgeçme Hakları",
+        "p-optout": "Uygulamayı kaldırarak tüm bilgi toplamasını kolayca durdurabilirsiniz.",
+        "h-retention": "Veri Saklama Politikası",
+        "p-retention": "Hizmet Sağlayıcı, Kullanıcı tarafından sağlanan verileri uygulamayı kullandığınız süre boyunca ve bunun ardından makul bir süre daha saklayacaktır. Kullanıcı tarafından sağlanan verilerin silinmesini istiyorsanız ustebay00@gmail.com adresinden iletişime geçin.",
+        "h-children": "Çocuklar",
+        "p-children": "Uygulama, 13 yaşın altındaki kişilere yönelik değildir. Çocuğunuzun kişisel bilgi sağladığından haberdarsanız lütfen ustebay00@gmail.com adresinden iletişime geçin.",
+        "h-security": "Güvenlik",
+        "p-security": "Hizmet Sağlayıcı, bilgilerinizin gizliliğini korumaya önem verir ve bilgileri korumak için fiziksel, elektronik ve prosedürel güvenceler sağlar.",
+        "h-changes": "Değişiklikler",
+        "p-changes": "Bu Gizlilik Politikası zaman zaman güncellenebilir. Herhangi bir değişiklik için bu Gizlilik Politikasını düzenli olarak incelemeniz tavsiye edilir.",
+        "h-contact": "Bize Ulaşın",
+        "p-contact": 'Gizlilikle ilgili sorularınız için <a href="mailto:ustebay00@gmail.com" style="color:#5B35C8;">ustebay00@gmail.com</a> adresinden bize ulaşabilirsiniz.',
+        back: "← Morva'ya Dön"
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector(`[onclick="setLang('${lang}')"]`).classList.add('active');
+      Object.keys(t).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = t[id];
+      });
+    }
+  </script>
 
 </body>
 </html>
