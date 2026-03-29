@@ -9,57 +9,240 @@
     body { background: #0A0A0A; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
     a { text-decoration: none; color: inherit; }
 
-    nav { background: #0A0A0A; border-bottom: 0.5px solid #222; padding: 14px 48px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    /* NAV */
+    nav {
+      background: #0A0A0A;
+      border-bottom: 0.5px solid #222;
+      padding: 14px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
     .nav-logo { display: flex; align-items: center; gap: 8px; }
-    .logo-icon { width: 32px; height: 32px; background: #5B35C8; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-    .logo-icon svg { width: 20px; height: 20px; }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: #5B35C8;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
     .nav-brand { font-size: 16px; font-weight: 500; }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-links a { font-size: 14px; color: #666; }
-    .lang-toggle { display: flex; background: #161616; border: 0.5px solid #333; border-radius: 8px; overflow: hidden; }
-    .lang-btn { padding: 6px 12px; font-size: 13px; cursor: pointer; color: #666; background: transparent; border: none; }
+    .nav-links { display: flex; gap: 12px; align-items: center; }
+    .lang-toggle {
+      display: flex;
+      background: #161616;
+      border: 0.5px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .lang-btn {
+      padding: 6px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      color: #666;
+      background: transparent;
+      border: none;
+    }
     .lang-btn.active { background: #5B35C8; color: #fff; }
-    .nav-btn { background: #5B35C8; color: #fff; border: none; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; }
 
+    /* HERO */
     .hero { padding: 80px 48px 40px; text-align: center; }
-    .hero h1 { font-size: 56px; font-weight: 500; line-height: 1.15; margin-bottom: 16px; color: #7048D4; min-height: 70px; }
-    .cursor { display: inline-block; width: 3px; height: 52px; background: #7048D4; margin-left: 3px; vertical-align: middle; animation: blink 0.7s infinite; }
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: #7048D4;
+      min-height: 70px;
+    }
+    .cursor {
+      display: inline-block;
+      width: 3px; height: 52px;
+      background: #7048D4;
+      margin-left: 3px;
+      vertical-align: middle;
+      animation: blink 0.7s infinite;
+    }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-    .hero-sub { font-size: 16px; color: #888; max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
-    .hero-btns { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 40px; }
-    .btn-primary { background: #5B35C8; color: #fff; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 500; display: flex; align-items: center; gap: 10px; cursor: pointer; }
-    .btn-secondary { background: transparent; color: #888; border: 0.5px solid #333; padding: 14px 28px; border-radius: 12px; font-size: 15px; cursor: pointer; }
-    .stats-row { border: 0.5px solid #222; border-radius: 14px; display: inline-flex; }
-    .stat-item { padding: 14px 28px; text-align: center; border-right: 0.5px solid #222; }
+    .hero-sub {
+      font-size: 16px; color: #888;
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-btns {
+      display: flex; align-items: center;
+      justify-content: center;
+      gap: 12px; margin-bottom: 40px;
+    }
+    .btn-primary {
+      background: #5B35C8; color: #fff;
+      border: none; padding: 14px 28px;
+      border-radius: 12px; font-size: 15px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 10px;
+      cursor: pointer;
+    }
+
+    /* STATS */
+    .stats-row {
+      border: 0.5px solid #222;
+      border-radius: 14px;
+      display: inline-flex;
+      max-width: 100%;
+    }
+    .stat-item {
+      padding: 14px 28px;
+      text-align: center;
+      border-right: 0.5px solid #222;
+      flex: 1;
+    }
     .stat-item:last-child { border-right: none; }
     .stat-num { font-size: 22px; font-weight: 500; color: #fff; margin-bottom: 3px; }
     .stat-label { font-size: 12px; color: #555; }
 
+    /* SECTIONS */
     section { padding: 24px 48px; }
-    .section-label { text-align: center; font-size: 16px; color: #5B35C8; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
-    .section-title { text-align: center; font-size: 28px; font-weight: 500; margin-bottom: 32px; }
+    .section-label {
+      text-align: center; font-size: 16px;
+      color: #5B35C8; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .section-title {
+      text-align: center; font-size: 28px;
+      font-weight: 500; margin-bottom: 32px;
+    }
 
-    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 960px; margin: 0 auto; }
-    .feature-card { background: #161616; border: 0.5px solid #222; border-radius: 14px; padding: 16px; text-align: center; }
+    /* FEATURES */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: #161616;
+      border: 0.5px solid #222;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+    }
     .feature-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
     .feature-card p { font-size: 13px; color: #666; line-height: 1.6; }
 
+    /* STEPS */
     .steps-section { background: #0A0A0A; border-top: 0.5px solid #222; }
-    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
     .step { text-align: center; }
-    .step-num { width: 36px; height: 36px; background: #5B35C8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 500; margin: 0 auto 14px; }
+    .step-num {
+      width: 36px; height: 36px;
+      background: #5B35C8; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 500;
+      margin: 0 auto 14px;
+    }
     .step h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
     .step p { font-size: 13px; color: #666; line-height: 1.6; }
 
+    /* DOWNLOAD */
     .download-section { text-align: center; border-top: 0.5px solid #222; }
     .download-section h2 { font-size: 28px; font-weight: 500; margin-bottom: 8px; }
     .download-section p { font-size: 14px; color: #666; margin-bottom: 28px; }
-    .app-store-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #000; padding: 14px 28px; border-radius: 14px; font-size: 15px; font-weight: 500; }
+    .app-store-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; color: #000;
+      padding: 14px 28px; border-radius: 14px;
+      font-size: 15px; font-weight: 500;
+    }
 
-    footer { background: #161616; border-top: 0.5px solid #222; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; }
+    /* FOOTER */
+    footer {
+      background: #161616;
+      border-top: 0.5px solid #222;
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     .footer-links { display: flex; gap: 20px; }
     .footer-links a { font-size: 13px; color: #555; }
     .footer-copy { font-size: 13px; color: #444; }
+
+    /* ─── MOBILE RESPONSIVE ─── */
+    @media (max-width: 768px) {
+
+      /* Nav */
+      nav { padding: 12px 20px; }
+      .nav-brand { font-size: 15px; }
+
+      /* Hero */
+      .hero { padding: 48px 20px 32px; }
+      .hero h1 { font-size: 36px; min-height: 48px; }
+      .cursor { height: 34px; }
+      .hero-sub { font-size: 14px; margin-bottom: 24px; }
+      .hero-btns { margin-bottom: 28px; }
+      .btn-primary { padding: 12px 22px; font-size: 14px; }
+
+      /* Stats — dikey yap */
+      .stats-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+      .stat-item {
+        border-right: none;
+        border-bottom: 0.5px solid #222;
+        padding: 12px 20px;
+      }
+      .stat-item:last-child { border-bottom: none; }
+
+      /* Sections */
+      section { padding: 32px 20px; }
+      .section-title { font-size: 22px; margin-bottom: 24px; }
+
+      /* Features — 2 kolon */
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      /* Steps — 1 kolon */
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        max-width: 360px;
+      }
+
+      /* Download */
+      .download-section h2 { font-size: 22px; }
+      .app-store-btn { padding: 12px 22px; font-size: 14px; }
+
+      /* Footer */
+      footer {
+        padding: 20px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 28px; min-height: 38px; }
+      .cursor { height: 26px; }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -76,7 +259,6 @@
         <button class="lang-btn active" onclick="setLang('en')">EN</button>
         <button class="lang-btn" onclick="setLang('tr')">TR</button>
       </div>
-      <button class="nav-btn" id="nav-download">Download</button>
     </div>
   </nav>
 
@@ -163,7 +345,7 @@
     <div class="footer-links">
       <a href="privacy.html" id="footer-privacy">Privacy Policy</a>
       <a href="terms.html" id="footer-terms">Terms of Use</a>
-      <a href="mailto:hello@morva.app" id="footer-contact">Contact</a>
+      <a href="mailto:ustebay00@gmail.com" id="footer-contact">Contact</a>
     </div>
     <span class="footer-copy">© 2026 Morva. All rights reserved.</span>
   </footer>
@@ -173,7 +355,6 @@
       en: {
         words: ["single photo.", "one tap.", "instant results."],
         heroSub: "Take a photo or pick from your gallery. Morva tells you what it is, how to care for it and so much more.",
-        navDownload: "Download",
         heroDownload: "Download on App Store",
         stat1: "Free daily scans", stat2: "Local storage", stat3: "Available now",
         featuresLabel: "Features",
@@ -192,7 +373,6 @@
       tr: {
         words: ["tek fotoğraf.", "bir dokunuş.", "anında sonuç."],
         heroSub: "Fotoğraf çek veya galerinizden seç. Morva ne olduğunu, nasıl bakılacağını ve çok daha fazlasını söyler.",
-        navDownload: "İndir",
         heroDownload: "App Store'dan İndir",
         stat1: "Günlük ücretsiz tarama", stat2: "Yerel depolama", stat3: "Şimdi mevcut",
         featuresLabel: "Özellikler",
@@ -200,7 +380,7 @@
         f1Title: "Bitki Tanımlama", f1Desc: "Anında bitki tanıma. Tek bir fotoğraf yeterli.",
         f2Title: "Bakım Rehberi", f2Desc: "Sulama takvimi, ışık ihtiyacı, zehirlilik bilgisi ve detaylı bakım talimatları.",
         f3Title: "Sağlık Teşhisi", f3Desc: "Hasta bitkiler için yapay zeka destekli teşhis. Adım adım iyileşme planı ve günlük takip.",
-        f4Title: "Koleksiyon", f4Desc: "Tanımlanan bitkilerini kaydet ve istediğin zaman tekrar bak",
+        f4Title: "Koleksiyon", f4Desc: "Tanımlanan bitkilerini kaydet ve istediğin zaman tekrar bak.",
         howLabel: "Nasıl çalışır", howTitle: "Bitkini tanımlamak için 3 adım",
         step1Title: "Fotoğraf çek", step1Desc: "Kameranı kullan veya galerinden seç. Herhangi bir bitki, herhangi bir açı.",
         step2Title: "Morva analiz eder", step2Desc: "Morva bitkiyi tanımlar ve anında detaylı bilgi üretir.",
@@ -221,7 +401,6 @@
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
       const c = content[lang];
       document.getElementById('hero-sub').textContent = c.heroSub;
-      document.getElementById('nav-download').textContent = c.navDownload;
       document.getElementById('hero-download').textContent = c.heroDownload;
       document.getElementById('stat-1').textContent = c.stat1;
       document.getElementById('stat-2').textContent = c.stat2;
@@ -272,3 +451,4 @@
 
 </body>
 </html>
+
