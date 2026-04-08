@@ -45,38 +45,36 @@
 
   <div class="content">
     <h1 id="title">Terms of Use</h1>
-    <p class="date" id="date">Last updated: March 2026</p>
+    <p class="date" id="date">Last updated: April 2026</p>
 
-    <p id="intro">These terms and conditions apply to the Morva app for mobile devices that was created by Serhat Üstebay as a Free service. Upon downloading or utilizing the Application, you are automatically agreeing to the following terms.</p>
+    <p id="intro">These terms and conditions apply to the Morva app for mobile devices created by Serhat Üstebay. The Application is offered as a Freemium service. By downloading or utilizing the Application, you agree to these terms.</p>
+
+    <h2 id="h-accounts">User Accounts</h2>
+    <p id="p-accounts">To access certain features, you may be required to create an account. You are responsible for maintaining the confidentiality of your account credentials.</p>
+
+    <h2 id="h-subs">Subscriptions & Payments</h2>
+    <p id="p-subs">Morva offers premium features through auto-renewable subscriptions. Payment will be charged to your Apple ID at the confirmation of purchase. Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period. Manage your subscriptions via App Store settings.</p>
 
     <h2 id="h-ip">Intellectual Property</h2>
-    <p id="p-ip">Unauthorized copying, modification of the Application, any part of the Application, or our trademarks is strictly prohibited. All trademarks, copyrights, database rights, and other intellectual property rights related to the Application remain the property of the Service Provider.</p>
+    <p id="p-ip">Unauthorized copying or modification of the Application or our trademarks is strictly prohibited. All intellectual property rights remain the property of the Service Provider.</p>
 
-    <h2 id="h-changes-service">Service Changes</h2>
-    <p id="p-changes-service">The Service Provider reserves the right to modify the Application or charge for their services at any time and for any reason. Any charges for the Application or its services will be clearly communicated to you.</p>
+    <h2 id="h-ai">AI Technologies</h2>
+    <p id="p-ai">The Application uses Anthropic's Claude API for plant identification. Accuracy is not guaranteed — results should not be used as the sole basis for medical, dietary, or safety decisions.</p>
 
     <h2 id="h-third">Third Party Services</h2>
-    <p id="p-third">The Application utilizes third-party services that have their own Terms and Conditions:</p>
+    <p id="p-third">The Application utilizes third-party services with their own Terms and Conditions:</p>
     <ul>
       <li>Google Analytics for Firebase</li>
       <li>Firebase Crashlytics</li>
       <li>Amplitude</li>
+      <li>RevenueCat</li>
     </ul>
 
-    <h2 id="h-ai">AI Technologies</h2>
-    <p id="p-ai">The Application uses Anthropic's Claude API to provide plant identification features. By submitting a photo for analysis, you acknowledge that the image will be processed by Anthropic's AI systems. You agree not to submit photos containing sensitive personal information or content that violates Anthropic's usage policies. The accuracy of plant identifications is not guaranteed — results should not be used as the sole basis for medical, dietary, or safety decisions.</p>
-
-    <h2 id="h-connectivity">Connectivity</h2>
-    <p id="p-connectivity">Some functions of the Application require an active internet connection. The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of access to Wi-Fi or if you have exhausted your data allowance.</p>
-
     <h2 id="h-updates">Updates & Termination</h2>
-    <p id="p-updates">The Service Provider may wish to update the application at some point. You agree to always accept updates to the application when offered to you. The Service Provider may also cease providing the application and may terminate its use at any time without providing termination notice to you.</p>
-
-    <h2 id="h-changes">Changes to These Terms</h2>
-    <p id="p-changes">The Service Provider may periodically update their Terms and Conditions. These terms and conditions were last updated in March 2026.</p>
+    <p id="p-updates">The Service Provider reserves the right to update or terminate the Application at any time without notice.</p>
 
     <h2 id="h-contact">Contact Us</h2>
-    <p id="p-contact">If you have any questions or suggestions about the Terms of Use, please contact us at <a href="mailto:ustebay00@gmail.com" style="color:#5B35C8;">ustebay00@gmail.com</a>.</p>
+    <p id="p-contact">Questions? Contact us at <a href="mailto:ustebay00@gmail.com" style="color:#5B35C8;">ustebay00@gmail.com</a>.</p>
   </div>
 
   <footer>
@@ -92,46 +90,42 @@
     const translations = {
       en: {
         title: "Terms of Use",
-        date: "Last updated: March 2026",
-        intro: "These terms and conditions apply to the Morva app for mobile devices that was created by Serhat Üstebay as a Free service. Upon downloading or utilizing the Application, you are automatically agreeing to the following terms.",
+        date: "Last updated: April 2026",
+        intro: "These terms apply to the Morva app created by Serhat Üstebay. The Application is offered as a Freemium service. By using the Application, you agree to these terms.",
+        "h-accounts": "User Accounts",
+        "p-accounts": "You may need an account for certain features. You are responsible for your account's security.",
+        "h-subs": "Subscriptions & Payments",
+        "p-subs": "Morva offers auto-renewable subscriptions. Payment is charged to your Apple ID. Renewals occur unless canceled 24 hours prior to the period end. Manage via App Store settings.",
         "h-ip": "Intellectual Property",
-        "p-ip": "Unauthorized copying, modification of the Application, any part of the Application, or our trademarks is strictly prohibited. All trademarks, copyrights, database rights, and other intellectual property rights related to the Application remain the property of the Service Provider.",
-        "h-changes-service": "Service Changes",
-        "p-changes-service": "The Service Provider reserves the right to modify the Application or charge for their services at any time and for any reason. Any charges for the Application or its services will be clearly communicated to you.",
-        "h-third": "Third Party Services",
-        "p-third": "The Application utilizes third-party services that have their own Terms and Conditions:",
+        "p-ip": "Unauthorized copying of the Application is prohibited. All rights belong to the Service Provider.",
         "h-ai": "AI Technologies",
-        "p-ai": "The Application uses Anthropic's Claude API to provide plant identification features. By submitting a photo for analysis, you acknowledge that the image will be processed by Anthropic's AI systems. You agree not to submit photos containing sensitive personal information or content that violates Anthropic's usage policies. The accuracy of plant identifications is not guaranteed — results should not be used as the sole basis for medical, dietary, or safety decisions.",
-        "h-connectivity": "Connectivity",
-        "p-connectivity": "Some functions of the Application require an active internet connection. The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of access to Wi-Fi or if you have exhausted your data allowance.",
+        "p-ai": "Plant identification uses Anthropic's Claude API. Accuracy is not guaranteed; do not use for medical or safety decisions.",
+        "h-third": "Third Party Services",
+        "p-third": "The Application utilizes third-party services with their own Terms:",
         "h-updates": "Updates & Termination",
-        "p-updates": "The Service Provider may wish to update the application at some point. You agree to always accept updates to the application when offered to you. The Service Provider may also cease providing the application and may terminate its use at any time without providing termination notice to you.",
-        "h-changes": "Changes to These Terms",
-        "p-changes": "The Service Provider may periodically update their Terms and Conditions. These terms and conditions were last updated in March 2026.",
+        "p-updates": "The Service Provider may update or terminate the Application at any time without notice.",
         "h-contact": "Contact Us",
-        "p-contact": 'If you have any questions or suggestions about the Terms of Use, please contact us at <a href="mailto:ustebay00@gmail.com" style="color:#5B35C8;">ustebay00@gmail.com</a>.',
+        "p-contact": 'Questions? Contact us at <a href="mailto:ustebay00@gmail.com" style="color:#5B35C8;">ustebay00@gmail.com</a>.',
         back: "← Back to Morva"
       },
       tr: {
         title: "Kullanım Koşulları",
-        date: "Son güncelleme: Mart 2026",
-        intro: "Bu kullanım koşulları, Serhat Üstebay tarafından ücretsiz bir hizmet olarak oluşturulan Morva mobil uygulaması için geçerlidir. Uygulamayı indirerek veya kullanarak aşağıdaki koşulları otomatik olarak kabul etmiş olursunuz.",
+        date: "Son güncelleme: Nisan 2026",
+        intro: "Bu koşullar, Serhat Üstebay tarafından oluşturulan Morva uygulaması için geçerlidir. Uygulama, Freemium bir hizmet olarak sunulmaktadır. Uygulamayı kullanarak bu koşulları kabul etmiş olursunuz.",
+        "h-accounts": "Kullanıcı Hesapları",
+        "p-accounts": "Bazı özellikler için hesap gerekebilir. Hesap güvenliğinizden siz sorumlusunuz.",
+        "h-subs": "Abonelikler ve Ödemeler",
+        "p-subs": "Morva, otomatik yenilenen abonelikler sunar. Ödemeler Apple ID hesabınızdan alınır. İptaller dönem bitiminden 24 saat önce yapılmalıdır. App Store ayarlarından yönetebilirsiniz.",
         "h-ip": "Fikri Mülkiyet",
-        "p-ip": "Uygulamanın, herhangi bir bölümünün veya ticari markalarımızın izinsiz kopyalanması veya değiştirilmesi kesinlikle yasaktır. Uygulamayla ilgili tüm ticari markalar, telif hakları, veri tabanı hakları ve diğer fikri mülkiyet hakları Hizmet Sağlayıcı'ya aittir.",
-        "h-changes-service": "Hizmet Değişiklikleri",
-        "p-changes-service": "Hizmet Sağlayıcı, Uygulamayı herhangi bir zamanda ve herhangi bir nedenle değiştirme veya hizmetleri ücretli hale getirme hakkını saklı tutar. Uygulama veya hizmetleri için uygulanacak ücretler açıkça bildirilecektir.",
-        "h-third": "Üçüncü Taraf Hizmetler",
-        "p-third": "Uygulama, kendi Kullanım Koşulları olan üçüncü taraf hizmetlerden yararlanır:",
+        "p-ip": "Uygulamanın izinsiz kopyalanması yasaktır. Tüm haklar Hizmet Sağlayıcı'ya aittir.",
         "h-ai": "Yapay Zeka Teknolojileri",
-        "p-ai": "Uygulama, bitki tanımlama özelliklerini sunmak için Anthropic'in Claude API'sini kullanır. Analiz için bir fotoğraf göndererek, görüntünün Anthropic'in yapay zeka sistemleri tarafından işleneceğini kabul etmiş olursunuz. Hassas kişisel bilgiler içeren veya Anthropic'in kullanım politikalarını ihlal eden fotoğraflar göndememeyi kabul edersiniz. Bitki tanımlamalarının doğruluğu garanti edilmez — sonuçlar tıbbi, beslenme veya güvenlik kararlarının tek dayanağı olarak kullanılmamalıdır.",
-        "h-connectivity": "Bağlantı",
-        "p-connectivity": "Uygulamanın bazı işlevleri aktif bir internet bağlantısı gerektirir. Wi-Fi erişimi olmaması veya veri limitinizin dolması nedeniyle Uygulamanın tam kapasitede çalışmaması durumunda Hizmet Sağlayıcı sorumlu tutulamaz.",
+        "p-ai": "Bitki tanımlama için Anthropic Claude API kullanılır. Doğruluk garanti edilmez; tıbbi veya güvenlik kararları için kullanılmamalıdır.",
+        "h-third": "Üçüncü Taraf Hizmetler",
+        "p-third": "Uygulama, kendi koşulları olan üçüncü taraf hizmetlerden yararlanır:",
         "h-updates": "Güncellemeler ve Sonlandırma",
-        "p-updates": "Hizmet Sağlayıcı uygulamayı güncellemeyi isteyebilir. Sunulan güncellemeleri her zaman kabul etmeyi kabul edersiniz. Hizmet Sağlayıcı ayrıca uygulamayı sunmayı durdurabilir ve herhangi bir bildirimde bulunmaksızın kullanımını sonlandırabilir.",
-        "h-changes": "Koşullardaki Değişiklikler",
-        "p-changes": "Hizmet Sağlayıcı, Kullanım Koşullarını periyodik olarak güncelleyebilir. Bu koşullar en son Mart 2026'da güncellenmiştir.",
+        "p-updates": "Hizmet Sağlayıcı, uygulamayı herhangi bir zamanda bildirim yapmaksızın güncelleyebilir veya durdurabilir.",
         "h-contact": "Bize Ulaşın",
-        "p-contact": 'Kullanım Koşulları hakkında sorularınız veya önerileriniz için <a href="mailto:ustebay00@gmail.com" style="color:#5B35C8;">ustebay00@gmail.com</a> adresinden bize ulaşabilirsiniz.',
+        "p-contact": 'Sorularınız için <a href="mailto:ustebay00@gmail.com" style="color:#5B35C8;">ustebay00@gmail.com</a> adresinden bize ulaşabilirsiniz.',
         back: "← Morva'ya Dön"
       }
     };
