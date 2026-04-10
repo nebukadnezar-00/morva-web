@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morva — Plant Identifier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Morva: Plant Care &amp; Identify</title>
+  <link rel="icon" href="morva_main_white.png" type="image/png">
+  <link rel="apple-touch-icon" href="morva_main_white.png">
+  <meta name="description" content="Identify plants, get care tips, and upgrade to Morva Pro for unlimited analyses. Free to download on iOS.">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #0A0A0A; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    html { overflow-x: hidden; }
+    body { background: #0A0A0A; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
 
     /* NAV */
@@ -48,7 +52,7 @@
     .lang-btn.active { background: #5B35C8; color: #fff; }
 
     /* HERO */
-    .hero { padding: 80px 48px 40px; text-align: center; }
+    .hero { padding: 80px 48px 12px; text-align: center; }
     .hero h1 {
       font-size: 56px;
       font-weight: 500;
@@ -68,14 +72,14 @@
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
     .hero-sub {
       font-size: 16px; color: #888;
-      max-width: 480px;
+      max-width: min(42rem, 92vw);
       margin: 0 auto 32px;
       line-height: 1.7;
     }
     .hero-btns {
       display: flex; align-items: center;
       justify-content: center;
-      gap: 12px; margin-bottom: 40px;
+      gap: 12px; margin-bottom: 12px;
     }
     .btn-primary {
       background: #5B35C8; color: #fff;
@@ -86,25 +90,97 @@
       cursor: pointer;
     }
 
-    /* STATS */
-    .stats-row {
-      border: 0.5px solid #222;
-      border-radius: 14px;
-      display: inline-flex;
-      max-width: 100%;
+    /* Morva: üstte feature kartlarından sonra 32px; altta How it works başlık bloğu için daha az (başlık alanı bozulmasın) */
+    .pro-section {
+      padding: 32px 48px 20px;
+      background: #0A0A0A;
     }
-    .stat-item {
-      padding: 14px 28px;
-      text-align: center;
-      border-right: 0.5px solid #222;
+    /* Üstteki .feature-grid ile aynı genişlik (960px), sol/sağ hizalı */
+    .pro-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 16px 20px;
+      min-height: 0;
+      background: linear-gradient(105deg, #141414 0%, #101010 42%, #161616 100%);
+      border: 0.5px solid #2a2a2a;
+      border-radius: 16px;
+    }
+    .pro-aside {
+      flex-shrink: 0;
+    }
+    .pro-logo {
+      width: 80px;
+      height: 80px;
+      background: #5B35C8;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+    .pro-logo img { width: 44px; height: 44px; object-fit: contain; }
+    .pro-main {
       flex: 1;
+      min-width: 0;
+      text-align: left;
     }
-    .stat-item:last-child { border-right: none; }
-    .stat-num { font-size: 22px; font-weight: 500; color: #fff; margin-bottom: 3px; }
-    .stat-label { font-size: 12px; color: #555; }
+    .pro-title {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .pro-tagline {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .pro-benefits {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+    @media (min-width: 560px) {
+      .pro-benefits { grid-template-columns: 1fr 1fr; }
+    }
+    .pro-benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .pro-check {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(46, 160, 67, 0.2);
+      color: #34C759;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
 
     /* SECTIONS */
     section { padding: 24px 48px; }
+    #features {
+      padding: 8px 48px 0;
+    }
+    #features .section-label {
+      margin-bottom: 6px;
+    }
     .section-label {
       text-align: center; font-size: 16px;
       color: #5B35C8; letter-spacing: 1.5px;
@@ -114,12 +190,15 @@
       text-align: center; font-size: 28px;
       font-weight: 500; margin-bottom: 32px;
     }
+    #features .section-title {
+      margin-bottom: 18px;
+    }
 
     /* FEATURES */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 12px;
       max-width: 960px;
       margin: 0 auto;
     }
@@ -134,11 +213,20 @@
     .feature-card p { font-size: 13px; color: #666; line-height: 1.6; }
 
     /* STEPS */
-    .steps-section { background: #0A0A0A; border-top: 0.5px solid #222; }
+    .steps-section {
+      background: #0A0A0A;
+      padding: 16px 48px 22px;
+    }
+    .steps-section .section-label {
+      margin-bottom: 10px;
+    }
+    .steps-section .section-title {
+      margin-bottom: 20px;
+    }
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 18px;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -148,15 +236,18 @@
       background: #5B35C8; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 14px; font-weight: 500;
-      margin: 0 auto 14px;
+      margin: 0 auto 8px;
     }
     .step h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
     .step p { font-size: 13px; color: #666; line-height: 1.6; }
 
     /* DOWNLOAD */
-    .download-section { text-align: center; border-top: 0.5px solid #222; }
+    .download-section {
+      text-align: center;
+      padding: 12px 48px 28px;
+    }
     .download-section h2 { font-size: 28px; font-weight: 500; margin-bottom: 8px; }
-    .download-section p { font-size: 14px; color: #666; margin-bottom: 28px; }
+    .download-section p { font-size: 14px; color: #666; margin-bottom: 18px; }
     .app-store-btn {
       display: inline-flex; align-items: center; gap: 10px;
       background: #fff; color: #000;
@@ -180,36 +271,50 @@
     /* ─── MOBILE RESPONSIVE ─── */
     @media (max-width: 768px) {
 
-      /* Nav */
-      nav { padding: 12px 20px; }
+      /* Nav — çentik / güvenli alan */
+      nav {
+        padding-top: max(12px, env(safe-area-inset-top, 0px));
+        padding-bottom: 12px;
+        padding-left: max(20px, env(safe-area-inset-left, 0px));
+        padding-right: max(20px, env(safe-area-inset-right, 0px));
+      }
       .nav-brand { font-size: 15px; }
 
       /* Hero */
-      .hero { padding: 48px 20px 32px; }
+      .hero { padding: 48px 20px 10px; }
       .hero h1 { font-size: 36px; min-height: 48px; }
       .cursor { height: 34px; }
-      .hero-sub { font-size: 14px; margin-bottom: 24px; }
-      .hero-btns { margin-bottom: 28px; }
+      .hero-sub {
+        font-size: 14px;
+        margin-bottom: 24px;
+        max-width: 100%;
+        padding: 0 2px;
+      }
+      .hero-btns { margin-bottom: 10px; }
       .btn-primary { padding: 12px 22px; font-size: 14px; }
 
-      /* Stats — dikey yap */
-      .stats-row {
-        display: flex;
+      .pro-section { padding: 24px 20px 16px; }
+      .pro-inner {
         flex-direction: column;
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
+        align-items: center;
+        padding: 16px 18px;
+        gap: 14px;
       }
-      .stat-item {
-        border-right: none;
-        border-bottom: 0.5px solid #222;
-        padding: 12px 20px;
-      }
-      .stat-item:last-child { border-bottom: none; }
+      .pro-main { text-align: center; }
+      .pro-benefits { grid-template-columns: 1fr; text-align: left; }
+      .pro-logo { width: 64px; height: 64px; border-radius: 16px; }
+      .pro-logo img { width: 34px; height: 34px; }
+      .pro-title { font-size: 20px; }
 
       /* Sections */
       section { padding: 32px 20px; }
+      #features { padding: 6px 20px 0; }
+      .steps-section { padding: 14px 20px 18px; }
+      .steps-section .section-label { margin-bottom: 8px; }
+      .steps-section .section-title { margin-bottom: 18px; }
+      .download-section { padding: 10px 20px 24px; }
       .section-title { font-size: 22px; margin-bottom: 24px; }
+      #features .section-title { margin-bottom: 14px; }
 
       /* Features — 2 kolon */
       .feature-grid {
@@ -220,17 +325,27 @@
       /* Steps — 1 kolon */
       .steps-grid {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 16px;
         max-width: 360px;
       }
 
       /* Download */
-      .download-section h2 { font-size: 22px; }
-      .app-store-btn { padding: 12px 22px; font-size: 14px; }
+      .download-section h2 { font-size: 22px; margin-bottom: 6px; }
+      .download-section p { margin-bottom: 14px; }
+      .app-store-btn {
+        padding: 12px 22px;
+        font-size: 14px;
+        max-width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+      }
 
       /* Footer */
       footer {
         padding: 20px;
+        padding-bottom: max(20px, env(safe-area-inset-bottom, 0px));
         flex-direction: column;
         gap: 12px;
         text-align: center;
@@ -271,20 +386,6 @@
           <span id="hero-download">Download on App Store</span>
         </a>
     </div>
-    <div class="stats-row">
-      <div class="stat-item">
-        <div class="stat-num">3</div>
-        <div class="stat-label" id="stat-1">Free daily scans</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">100%</div>
-        <div class="stat-label" id="stat-2">Local storage</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">iOS</div>
-        <div class="stat-label" id="stat-3">Available now</div>
-      </div>
-    </div>
   </section>
 
   <section id="features">
@@ -305,7 +406,27 @@
       </div>
       <div class="feature-card">
         <h3 id="f4-title">Collection</h3>
-        <p id="f4-desc">Save your identified plants and revisit them anytime — all stored locally.</p>
+        <p id="f4-desc">Save plants to your collection and sync across devices when you sign in.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="morva-pro" class="pro-section" aria-labelledby="pro-title">
+    <div class="pro-inner">
+      <div class="pro-aside">
+        <div class="pro-logo">
+          <img src="morva_main_white.png" alt="">
+        </div>
+      </div>
+      <div class="pro-main">
+        <h2 class="pro-title" id="pro-title">Morva Pro</h2>
+        <p class="pro-tagline" id="pro-tagline">Build a deeper bond with your plants.</p>
+        <ul class="pro-benefits">
+          <li><span class="pro-check" aria-hidden="true">✓</span><span id="pro-b1">Unlimited plant scanning</span></li>
+          <li><span class="pro-check" aria-hidden="true">✓</span><span id="pro-b2">Real-time, photo-based disease detection</span></li>
+          <li><span class="pro-check" aria-hidden="true">✓</span><span id="pro-b3">Unlimited care guidance</span></li>
+          <li><span class="pro-check" aria-hidden="true">✓</span><span id="pro-b4">More coming soon</span></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -334,7 +455,7 @@
 
   <section class="download-section">
     <h2 id="dl-title">Ready to identify your first plant?</h2>
-    <p id="dl-sub">Available on iOS. Free to download.</p>
+    <p id="dl-sub">Free to download on iOS. Optional Morva Pro subscription unlocks unlimited analyses and more.</p>
     <a href="https://apps.apple.com/tr/app/morva-plant-identifier-care/id6761277713" target="_blank" class="app-store-btn">
       <span style="font-size:22px;">&#63743;</span>
       <span id="dl-btn">Download on the App Store</span>
@@ -353,39 +474,53 @@
   <script>
     const content = {
       en: {
+        pageTitle: "Morva: Plant Care & Identify",
         words: ["single photo.", "one tap.", "instant results."],
         heroSub: "Take a photo or pick from your gallery. Morva tells you what it is, how to care for it and so much more.",
         heroDownload: "Download on App Store",
-        stat1: "Free daily scans", stat2: "Local storage", stat3: "Available now",
+        proTagline: "Build a deeper bond with your plants.",
+        proB1: "Unlimited plant scanning",
+        proB2: "Real-time, photo-based disease detection",
+        proB3: "Unlimited care guidance",
+        proB4: "More coming soon",
         featuresLabel: "Features",
         featuresTitle: "Everything you need to know about your plants",
         f1Title: "Plant identification", f1Desc: "Instant plant recognition. Just one photo is enough.",
         f2Title: "Care Guide", f2Desc: "Watering schedule, light requirements, toxicity information and detailed care instructions.",
         f3Title: "Health Diagnosis", f3Desc: "AI-powered diagnosis for sick plants. Step-by-step recovery plan and day-by-day tracking.",
-        f4Title: "Collection", f4Desc: "Save your identified plants and revisit them anytime — all stored locally.",
+        f4Title: "Collection", f4Desc: "Save plants to your collection and sync across devices when you sign in.",
         howLabel: "How it works", howTitle: "3 steps to identify any plant",
         step1Title: "Take a photo", step1Desc: "Use your camera or pick from your gallery. Any plant, any angle.",
         step2Title: "Morva analyzes", step2Desc: "Morva identifies the plant and generates detailed information instantly.",
         step3Title: "Learn & archive", step3Desc: "Explore detailed information about plant and save to your collection for further use.",
-        dlTitle: "Ready to identify your first plant?", dlSub: "Available on iOS. Free to download.", dlBtn: "Download on the App Store",
+        dlTitle: "Ready to identify your first plant?",
+        dlSub: "Free to download on iOS. Optional Morva Pro subscription unlocks unlimited analyses and more.",
+        dlBtn: "Download on the App Store",
         footerPrivacy: "Privacy Policy", footerTerms: "Terms of Use", footerContact: "Contact"
       },
       tr: {
+        pageTitle: "Morva: Bitki Bakım & Tanıma",
         words: ["tek fotoğraf.", "bir dokunuş.", "anında sonuç."],
         heroSub: "Fotoğraf çek veya galerinizden seç. Morva ne olduğunu, nasıl bakılacağını ve çok daha fazlasını söyler.",
         heroDownload: "App Store'dan İndir",
-        stat1: "Günlük ücretsiz tarama", stat2: "Yerel depolama", stat3: "Şimdi mevcut",
+        proTagline: "Bitkilerinle daha derin bir bağ kur.",
+        proB1: "Sınırsız bitki taraması",
+        proB2: "Gerçek zamanlı fotoğraflı hastalık tespiti",
+        proB3: "Sınırsız bakım rehberi",
+        proB4: "Daha fazlası yakında",
         featuresLabel: "Özellikler",
         featuresTitle: "Bitkiler hakkında bilmen gereken her şey",
         f1Title: "Bitki Tanımlama", f1Desc: "Anında bitki tanıma. Tek bir fotoğraf yeterli.",
         f2Title: "Bakım Rehberi", f2Desc: "Sulama takvimi, ışık ihtiyacı, zehirlilik bilgisi ve detaylı bakım talimatları.",
         f3Title: "Sağlık Teşhisi", f3Desc: "Hasta bitkiler için yapay zeka destekli teşhis. Adım adım iyileşme planı ve günlük takip.",
-        f4Title: "Koleksiyon", f4Desc: "Tanımlanan bitkilerini kaydet ve istediğin zaman tekrar bak.",
+        f4Title: "Koleksiyon", f4Desc: "Bitkilerini koleksiyonuna kaydet; giriş yaptığında cihazlar arası senkron.",
         howLabel: "Nasıl çalışır", howTitle: "Bitkini tanımlamak için 3 adım",
         step1Title: "Fotoğraf çek", step1Desc: "Kameranı kullan veya galerinden seç. Herhangi bir bitki, herhangi bir açı.",
         step2Title: "Morva analiz eder", step2Desc: "Morva bitkiyi tanımlar ve anında detaylı bilgi üretir.",
         step3Title: "Öğren ve kaydet", step3Desc: "Bitki hakkında detaylı bilgileri keşfet ve koleksiyonuna kaydet.",
-        dlTitle: "İlk bitkini tanımlamaya hazır mısın?", dlSub: "iOS'ta mevcut. Ücretsiz indir.", dlBtn: "App Store'dan İndir",
+        dlTitle: "İlk bitkini tanımlamaya hazır mısın?",
+        dlSub: "iOS'ta ücretsiz indir. İsteğe bağlı Morva Pro aboneliği sınırsız analiz ve daha fazlasını açar.",
+        dlBtn: "App Store'dan İndir",
         footerPrivacy: "Gizlilik Politikası", footerTerms: "Kullanım Şartları", footerContact: "İletişim"
       }
     };
@@ -400,11 +535,15 @@
       localStorage.setItem('morva-lang', lang);
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
       const c = content[lang];
+      document.title = c.pageTitle;
+      document.documentElement.lang = lang === 'tr' ? 'tr' : 'en';
       document.getElementById('hero-sub').textContent = c.heroSub;
       document.getElementById('hero-download').textContent = c.heroDownload;
-      document.getElementById('stat-1').textContent = c.stat1;
-      document.getElementById('stat-2').textContent = c.stat2;
-      document.getElementById('stat-3').textContent = c.stat3;
+      document.getElementById('pro-tagline').textContent = c.proTagline;
+      document.getElementById('pro-b1').textContent = c.proB1;
+      document.getElementById('pro-b2').textContent = c.proB2;
+      document.getElementById('pro-b3').textContent = c.proB3;
+      document.getElementById('pro-b4').textContent = c.proB4;
       document.getElementById('features-label').textContent = c.featuresLabel;
       document.getElementById('features-title').textContent = c.featuresTitle;
       document.getElementById('f1-title').textContent = c.f1Title;
